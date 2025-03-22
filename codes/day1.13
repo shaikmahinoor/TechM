@@ -1,1 +1,14 @@
+public class RGBToGrayscale {
+    public static int toGrayscale(int red, int green, int blue) {
+        // Using bitwise shift to approximate the weighted sum
+        int grayscale = (red * 77 + green * 150 + blue * 29) >> 8;
+        return grayscale;
+    }
+
+    public static void main(String[] args) {
+        int red = 100, green = 150, blue = 200;
+        int gray = toGrayscale(red, green, blue);
+        System.out.println("Grayscale value: " + gray);
+    }
+}
 
