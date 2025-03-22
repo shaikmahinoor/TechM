@@ -1,1 +1,28 @@
 
+#include <iostream>
+using namespace std;
+
+
+unsigned int reverseBits(unsigned int num) {
+    unsigned int result = 0;
+    int bitCount = sizeof(num) * 8; // Get the number of bits in an integer
+
+    for (int i = 0; i < bitCount; i++) {
+        if (num & (1 << i)) // Check if the ith bit is set
+            result |= (1 << (bitCount - 1 - i)); // Set the reversed bit
+    }
+    return result;
+}
+
+int main() {
+    unsigned int num = 5; // Binary: 0000 0101
+    unsigned int reversedNum = reverseBits(num);
+    
+    cout << "Reversed Binary: ";
+    for (int i = 7; i >= 0; i--) { // Printing only 8 bits for clarity
+        cout << ((reversedNum >> i) & 1);
+    }
+    cout << " (Equivalent Decimal: " << reversedNum << ")" << endl;
+    
+    return 0;
+}
