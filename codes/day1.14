@@ -1,1 +1,22 @@
-
+public class IntegerCompression {
+    
+    // Encode an integer using bitwise operations
+    public static int encode(int num) {
+        return (num << 1) ^ (num >> 31);
+    }
+    
+    // Decode the integer back
+    public static int decode(int encoded) {
+        return (encoded >>> 1) ^ -(encoded & 1);
+    }
+    
+    public static void main(String[] args) {
+        int number = 12345;
+        int encoded = encode(number);
+        int decoded = decode(encoded);
+        
+        System.out.println("Original: " + number);
+        System.out.println("Encoded: " + encoded);
+        System.out.println("Decoded: " + decoded);
+    }
+}
