@@ -1,1 +1,33 @@
+#include <stdio.h>
 
+void generateFibonacci(int n) {
+    int a = 0, b = 1, next, count = 0;
+    
+    if (n <= 0) {
+        printf("Invalid input. Please enter a positive integer.\n");
+        return;
+    }
+    
+    do {
+        if (count == 0)
+            printf("%d", a);
+        else if (count == 1)
+            printf(", %d", b);
+        else {
+            next = a + b;
+            printf(", %d", next);
+            a = b;
+            b = next;
+        }
+        count++;
+    } while (count < n);
+    
+    printf("\n");
+}
+
+int main() {
+    int n;
+    printf("Enter the number of Fibonacci numbers to generate: ");
+    scanf("%d", &n);
+    
+    generateFibonacci(n);
